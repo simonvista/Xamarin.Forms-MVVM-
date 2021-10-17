@@ -13,7 +13,8 @@ namespace Tutorial
 
             //MainPage = new MainPage();
             //MainPage = new Labels();
-            MainPage = new Entries();
+            //MainPage = new Entries();
+            MainPage = new Buttons();
         }
 
         protected override void OnStart()

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tutorial.Buttons">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="simple button click" Clicked="Button_OnClicked" />
+            <Label x:Name="lblSBC" FontSize="Large" />
+
+            <Button Text="command button click" Command="{Binding CommandClicked}" />
+            <Label x:Name="lblCBC" FontSize="Large" />
+
+            <Button Text="command parameter button click-1" 
+                    Command="{Binding CommandParamClicked}"
+                    CommandParameter="curious drive"/>
+            <Button Text="command parameter button click-2" 
+                    Command="{Binding CommandParamClicked}"
+                    CommandParameter="hello world"/>
+            <Label x:Name="lblCPBC" FontSize="Large"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
