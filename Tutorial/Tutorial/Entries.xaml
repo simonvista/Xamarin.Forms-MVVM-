@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tutorial.Entries">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="enterAppName" />
+            <Entry Text="this is an entry" />
+            <Entry Text="this is an readOnly entry" IsReadOnly="True" />
+            <Entry Text="maxLength fdfgdentry" MaxLength="10" />
+            <Entry Placeholder="userName" PlaceholderColor="Olive" />
+            <Entry Placeholder="password" IsPassword="True" />
+            <Entry Text="this is an entry" ReturnType="Search" />
+            <Entry Text="completed event" Completed="Entry_OnCompleted"/>
+            <Label x:Name="lblCompleted" FontSize="Large" />
+            <Entry Text="textChangedEvent" TextChanged="InputView_OnTextChanged" />
+            <Label x:Name="lblTextChangedPre" FontSize="Large" />
+            <Label x:Name="lblTextChangedCur" FontSize="Large" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
