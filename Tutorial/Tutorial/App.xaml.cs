@@ -14,7 +14,8 @@ namespace Tutorial
             //MainPage = new MainPage();
             //MainPage = new Labels();
             //MainPage = new Entries();
-            MainPage = new Buttons();
+            //MainPage = new Buttons();
+            MainPage = new Images();
         }
 
         protected override void OnStart()

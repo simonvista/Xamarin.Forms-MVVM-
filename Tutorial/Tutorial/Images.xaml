@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Tutorial;assembly=Tutorial"
+             x:Class="Tutorial.Images">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Image Source="xamagon.png" HeightRequest="50" WidthRequest="50" />
+                <ImageButton Clicked="ImageButton_OnClicked" Source="xamagon.png" HeightRequest="50" WidthRequest="50" />
+                <Label x:Name="lblImg" Text="xamarin" FontSize="Large" />
+
+                <Image Source="https://www.pngkey.com/png/detail/259-2590163_rainbow-apple-logo.png" WidthRequest="200" HeightRequest="200" />
+                <Label Text="apple logo-1" FontSize="Large" />
+
+                <Image Source="{local:ImageResource Tutorial.apple.png}" WidthRequest="200" HeightRequest="200" />
+                <Label Text="apple logo-2" FontSize="Large" />
+            </StackLayout>
+        </ScrollView>
+        
+    </ContentPage.Content>
+</ContentPage>
