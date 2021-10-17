@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tutorial.Labels">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="simple label 1" />
+            <Label Text="simple label 2" FontSize="Large" />
+            <Label Text="simple label 3" TextColor="DarkBlue" FontSize="Large"/>
+            <Label Text="simple label 4" TextColor="DarkBlue" LineHeight="10" />
+            <Label Text="simple label 5 simple label 5 simple label 5 simple label 5 simple label 5 simple label 5 simple label 5 simple label 5 simple label 5 simple label 5 simple label 5 simple label 5 simple label 5 simple label 5" 
+                   TextColor="DarkBlue" 
+                   FontSize="Large"
+                   LineBreakMode="NoWrap"/>
+            <Label Text="simple label 6 simple label 6 simple label 6 simple label 6 simple label 6 simple label 6 simple label 6 simple label 6 simple label 6 simple label 6 simple label 6 simple label 6 simple label 6 simple label 6" 
+                   TextColor="DarkBlue" 
+                   FontSize="Large"
+                   LineBreakMode="WordWrap"/>
+            <Label Text="simple label 7 simple label 7 simple label 7 simple label 7 simple label 7 simple label 7 simple label 7 simple label 7 simple label 7 simple label 7 simple label 7 simple label 7 simple label 7 simple label 7" 
+                   TextColor="DarkBlue" 
+                   FontSize="Large"
+                   LineBreakMode="WordWrap"
+                   MaxLines="2"/>
+            <Label LineBreakMode="WordWrap">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Red Bold " TextColor="Red" FontAttributes="Bold" />
+                        <Span Text="italic small" FontAttributes="Italic" FontSize="Small" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label LineBreakMode="WordWrap">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Wanna google something?" TextColor="Red" FontAttributes="Bold" />
+                        <Span Text="Click here" TextDecorations="Underline" TextColor="Blue">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    Command="{Binding TapCommand}" 
+                                    CommandParameter="https://www.yahool.com" />
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

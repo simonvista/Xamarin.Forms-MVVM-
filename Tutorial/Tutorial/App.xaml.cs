@@ -11,7 +11,8 @@ namespace Tutorial
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            //MainPage = new MainPage();
+            MainPage = new Labels();
         }
 
         protected override void OnStart()
