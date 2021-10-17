@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tutorial.CheckboxGridLayout">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Text="Are you a Xamarin fan?" FontSize="Large" Grid.Column="0" Grid.Row="0" />
+                <CheckBox x:Name="cbXF" CheckedChanged="CbXF_OnCheckedChanged" Grid.Row="0" Grid.Column="1" />
+            </Grid>
+            <Label x:Name="lblCB" FontSize="Large" />
+
+            <CheckBox x:Name="checkBox" />
+            <Label Text="Lorem ipsum dolor sit amet, elit rutrum, enim hendrerit augue vitae praesent sed non, lorem aenean quis praesent pede.">
+                <Label.Triggers>
+                    <DataTrigger TargetType="Label"
+                                 Binding="{Binding Source={x:Reference checkBox}, Path=IsChecked}"
+                                 Value="true">
+                        <Setter Property="FontAttributes"
+                                Value="Italic, Bold" />
+                        <Setter Property="FontSize"
+                                Value="Large" />
+                    </DataTrigger>
+                </Label.Triggers>
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

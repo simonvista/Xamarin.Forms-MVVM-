@@ -15,7 +15,8 @@ namespace Tutorial
             //MainPage = new Labels();
             //MainPage = new Entries();
             //MainPage = new Buttons();
-            MainPage = new Images();
+            //MainPage = new Images();
+            MainPage = new CheckboxGridLayout();
         }
 
         protected override void OnStart()
