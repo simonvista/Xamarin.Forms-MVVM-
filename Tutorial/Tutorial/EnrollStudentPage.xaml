@@ -20,8 +20,10 @@
             <!--<Switch x:Name="swFS" HorizontalOptions="Start" />-->
             <Switch IsToggled="{Binding IsForeign}" HorizontalOptions="Start"/>
 
-            <Button x:Name="btnSubmit" Text="submit" FontSize="Large" Clicked="BtnSubmit_OnClicked"/>
-            <Label x:Name="lblDisplayMsg" FontSize="Large" />
+            <!--<Button x:Name="btnSubmit" Text="submit" FontSize="Large" Clicked="BtnSubmit_OnClicked"/>-->
+            <Button Command="{Binding SubmitCommand}" Text="submit" FontSize="Large" />
+            <!--<Label x:Name="lblDisplayMsg" FontSize="Large" />-->
+            <Label Text="{Binding DisplayMsg}" FontSize="Large" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

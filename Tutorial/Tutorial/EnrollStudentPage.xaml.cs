@@ -17,20 +17,6 @@ namespace Tutorial
             InitializeComponent();
         }
 
-        private void BtnSubmit_OnClicked(object sender, EventArgs e)
-        {
-            //lblDisplayMsg.Text = entName.Text
-            //                     + ", we sent verification link to "
-            //                     + entEmail.Text
-            //                     + ". Please verify your account";
-
-            //use BindingContext to access VM properties
-            var enrollStudentViewModel = (EnrollStudentViewModel) BindingContext;
-            lblDisplayMsg.Text =
-                enrollStudentViewModel.FullName
-                + "we've send you verification link to "
-                + enrollStudentViewModel.Email
-                + " .Please check it in inbox and confirm";
-        }
+        
     }
 }
