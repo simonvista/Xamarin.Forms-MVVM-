@@ -22,7 +22,7 @@ namespace Tutorial
         {
             DisplayMsg =
                 FullName
-                + "we've send you verification link to "
+                + ". We've send you verification link to "
                 + Email
                 + " .Please check it in inbox and confirm";
             OnPropertyChanged(nameof(DisplayMsg));
