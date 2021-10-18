@@ -1,10 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Tutorial;assembly=Tutorial"
              x:Class="Tutorial.EmployeeListPage">
+    <ContentPage.BindingContext>
+        <local:EmployeeListViewModel />
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="lvEmployees"></ListView>
+            <!--<ListView x:Name="lvEmployees"></ListView>-->
+            <ListView ItemsSource="{Binding Employees}"></ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -16,10 +16,10 @@ namespace Tutorial
         {
             InitializeComponent();
             //1st approach: ItemsSource is not good
-            lvEmployees.ItemsSource = new string[]
-            {
-                "Rob Finnerty", "Bill Wrestler","Geri-Beth Hooper","Keith Joyce-Purdy","Sheri Spruce","Burt Indybrick"
-            };
+            //lvEmployees.ItemsSource = new string[]
+            //{
+            //    "Rob Finnerty", "Bill Wrestler","Geri-Beth Hooper","Keith Joyce-Purdy","Sheri Spruce","Burt Indybrick"
+            //};
         }
     }
 }
