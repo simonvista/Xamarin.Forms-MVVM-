@@ -37,6 +37,7 @@ namespace Tutorial
                     new AppMasterDetailPageMenuItem { Id = 1, Title = "Entries",TargetType = typeof(Entries)},
                     new AppMasterDetailPageMenuItem { Id = 2, Title = "Buttons",TargetType = typeof(Buttons)},
                     new AppMasterDetailPageMenuItem { Id = 3, Title = "Images",TargetType = typeof(Images)},
+                    new AppMasterDetailPageMenuItem { Id = 3, Title = "EnrollStudentPage",TargetType = typeof(EnrollStudentPage)},
                     //new AppMasterDetailPageMenuItem { Id = 4, Title = "Page 5" },
                 });
             }

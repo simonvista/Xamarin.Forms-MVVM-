@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tutorial.EnrollStudentPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="name" FontSize="Large" />
+            <Entry x:Name="entName" FontSize="Large" />
+
+            <Label Text="email" FontSize="Large" />
+            <Entry x:Name="entEmail" FontSize="Large" />
+
+            <Label Text="foreign student?" FontSize="Large" />
+            <Switch x:Name="swFS" HorizontalOptions="Start" />
+
+            <Button x:Name="btnSubmit" Text="submit" FontSize="Large" Clicked="BtnSubmit_OnClicked"/>
+            <Label x:Name="lblDisplayMsg" FontSize="Large" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
