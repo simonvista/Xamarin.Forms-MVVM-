@@ -1,17 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Tutorial;assembly=Tutorial"
              x:Class="Tutorial.EnrollStudentPage">
+    <ContentPage.BindingContext>
+        <local:EnrollStudentViewModel />
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
             <Label Text="name" FontSize="Large" />
-            <Entry x:Name="entName" FontSize="Large" />
+            <!--<Entry x:Name="entName" FontSize="Large" />-->
+            <Entry Text="{Binding FullName}" FontSize="Large" />
 
             <Label Text="email" FontSize="Large" />
-            <Entry x:Name="entEmail" FontSize="Large" />
+            <!--<Entry x:Name="entEmail" FontSize="Large" />-->
+            <Entry Text="{Binding Email}" FontSize="Large" />
 
             <Label Text="foreign student?" FontSize="Large" />
-            <Switch x:Name="swFS" HorizontalOptions="Start" />
+            <!--<Switch x:Name="swFS" HorizontalOptions="Start" />-->
+            <Switch IsToggled="{Binding IsForeign}" HorizontalOptions="Start"/>
 
             <Button x:Name="btnSubmit" Text="submit" FontSize="Large" Clicked="BtnSubmit_OnClicked"/>
             <Label x:Name="lblDisplayMsg" FontSize="Large" />
