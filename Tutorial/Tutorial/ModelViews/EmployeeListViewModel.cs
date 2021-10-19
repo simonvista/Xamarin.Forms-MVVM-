@@ -24,8 +24,8 @@ namespace Tutorial
 
         //public ObservableCollection<string> Employees { get; set; }
         //public ObservableCollection<Employee> Employees { get; set; }
-        private ObservableCollection<Employee> _employees;
 
+        private ObservableCollection<Employee> _employees;
         public ObservableCollection<Employee> Employees
         {
             get { return _employees; }
@@ -36,13 +36,23 @@ namespace Tutorial
             }
         }
 
-
         public string EmployeeName { get; set; }
         public ICommand AddEmployeeCommand => new Command(AddEmployee);
 
         public string SelectedEmpName { get; set; }
         public ICommand RemoveEmployeeCommand => new Command(RemoveEmployee);
         public ICommand UpdateEmployeeCommand => new Command(UpdateEmployee);
+
+        private bool _isBusy;
+        public bool IsBusy
+        {
+            get { return _isBusy; }
+            set
+            {
+                _isBusy = value;
+                OnPropertyChanged();
+            }
+        }
 
         public EmployeeListViewModel()
         {
@@ -120,9 +130,11 @@ namespace Tutorial
 
         public void LoadEmplyeesAsync()
         {
+            IsBusy = true;
             Task.Run(async () =>
             {
                 Employees = await new EmployeeService().GetEmployees();
+                IsBusy = false;
             });
             
         }

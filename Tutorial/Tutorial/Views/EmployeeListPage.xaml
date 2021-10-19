@@ -16,6 +16,10 @@
             <Button Text="remove selected employee" Command="{Binding RemoveEmployeeCommand}" />
             <Button Text="update selected employee" Command="{Binding UpdateEmployeeCommand}" />-->
             <!--<ListView x:Name="lvEmployees"></ListView>-->
+
+            <!--<ActivityIndicator IsRunning="true" />-->
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+
             <ListView ItemsSource="{Binding Employees}" SelectedItem="{Binding SelectedEmpName}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
