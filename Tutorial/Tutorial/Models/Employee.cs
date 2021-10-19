@@ -11,6 +11,10 @@ namespace Tutorial
         public string Designation { get; set; }
         public string PictureUrl { get; set; }
 
+        public Employee()
+        {
+            
+        }
         public Employee(int id,string name,string design,string url)
         {
             EmployeeId = id;

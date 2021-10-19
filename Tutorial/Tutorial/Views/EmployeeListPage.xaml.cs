@@ -21,5 +21,10 @@ namespace Tutorial
             //    "Rob Finnerty", "Bill Wrestler","Geri-Beth Hooper","Keith Joyce-Purdy","Sheri Spruce","Burt Indybrick"
             //};
         }
+
+        private void MenuItem_OnClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new AddOrEditEmployeePage());
+        }
     }
 }

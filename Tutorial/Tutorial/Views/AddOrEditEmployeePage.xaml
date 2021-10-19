@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Tutorial;assembly=Tutorial"
+             x:Class="Tutorial.AddOrEditEmployeePage">
+    <ContentPage.BindingContext>
+        <local:AddOrEditEmployeeViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Placeholder="employee name" Text="{Binding Employee.EmployeeName}" />
+            <Entry Placeholder="designation" Text="{Binding Employee.Designation}"/>
+            <Button Text="save" Clicked="Button_OnClicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

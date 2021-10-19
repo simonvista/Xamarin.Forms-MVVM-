@@ -47,6 +47,18 @@ namespace Tutorial
              Employees.Add(new Employee(4, "Keith Joyce-Purdy", "Project Manager", "img4.jpg"));
              Employees.Add(new Employee(5, "Sheri Spruce", "Sr. Software Engineer", "img5.jpg"));
              Employees.Add(new Employee(6, "Burt Indybrick", "Software Engineer", "img6.jpg"));
+
+             MessagingCenter.Subscribe<AddOrEditEmployeePage,Employee>(
+                 this, 
+                 "AddOrEditEmployee",
+                 (sender, employee) =>
+                 {
+                     if (employee.EmployeeId == 0)
+                     {
+                         employee.EmployeeId = Employees.Count+1;
+                     }
+                     Employees.Add(employee);
+                 });
         }
 
         public void AddEmployee()

@@ -7,7 +7,7 @@
         <local:EmployeeListViewModel />
     </ContentPage.BindingContext>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="add" />
+        <ToolbarItem Text="add" Clicked="MenuItem_OnClicked" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
