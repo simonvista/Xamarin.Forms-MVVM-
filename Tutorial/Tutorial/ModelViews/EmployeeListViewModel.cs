@@ -5,13 +5,15 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Tutorial.Annotations;
 using Xamarin.Forms;
 
 namespace Tutorial
 {
-    public class EmployeeListViewModel
+    //public class EmployeeListViewModel
+    public class EmployeeListViewModel : INotifyPropertyChanged
     {
         //approach 2: w/o model is not good-can not alter employeeList
         //public string[] Employees { get; set; }
@@ -21,7 +23,19 @@ namespace Tutorial
         //We don't need INotifyPropertyChange w/ ObservableCollection<string>!!!
 
         //public ObservableCollection<string> Employees { get; set; }
-        public ObservableCollection<Employee> Employees { get; set; }
+        //public ObservableCollection<Employee> Employees { get; set; }
+        private ObservableCollection<Employee> _employees;
+
+        public ObservableCollection<Employee> Employees
+        {
+            get { return _employees; }
+            set
+            {
+                _employees = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         public string EmployeeName { get; set; }
         public ICommand AddEmployeeCommand => new Command(AddEmployee);
@@ -32,25 +46,33 @@ namespace Tutorial
 
         public EmployeeListViewModel()
         {
-             //Employees = new string[]
-             //{
-             //    "Rob Finnerty", "Bill Wrestler","Geri-Beth Hooper","Keith Joyce-Purdy","Sheri Spruce","Burt Indybrick"
-             //};
+            //Employees = new string[]
+            //{
+            //    "Rob Finnerty", "Bill Wrestler","Geri-Beth Hooper","Keith Joyce-Purdy","Sheri Spruce","Burt Indybrick"
+            //};
 
-             //Employees = new ObservableCollection<string>();
-             Employees = new ObservableCollection<Employee>();
-             //Employees.Add("Rob Finnerty");
-             //Employees.Add("Bill Wrestler");
-             //Employees.Add("Geri-Beth Hooper");
-             //Employees.Add("Keith Joyce-Purdy");
-             //Employees.Add("Sheri Spruce");
-             //Employees.Add("Burt Indybrick");
-             Employees.Add(new Employee(1, "Rob Finnerty","CEO","img1.jpg"));
-             Employees.Add(new Employee(2, "Bill Wrestler", "Director", "img2.jpg"));
-             Employees.Add(new Employee(3, "Geri-Beth Hooper", "Delivery Manager", "img3.jpg"));
-             Employees.Add(new Employee(4, "Keith Joyce-Purdy", "Project Manager", "img4.jpg"));
-             Employees.Add(new Employee(5, "Sheri Spruce", "Sr. Software Engineer", "img5.jpg"));
-             Employees.Add(new Employee(6, "Burt Indybrick", "Software Engineer", "img6.jpg"));
+            //Employees = new ObservableCollection<string>();
+            //Employees.Add("Rob Finnerty");
+            //Employees.Add("Bill Wrestler");
+            //Employees.Add("Geri-Beth Hooper");
+            //Employees.Add("Keith Joyce-Purdy");
+            //Employees.Add("Sheri Spruce");
+            //Employees.Add("Burt Indybrick");
+
+            //Employees = new ObservableCollection<Employee>();
+            //Employees.Add(new Employee(1, "Rob Finnerty","CEO","img1.jpg"));
+            // Employees.Add(new Employee(2, "Bill Wrestler", "Director", "img2.jpg"));
+            // Employees.Add(new Employee(3, "Geri-Beth Hooper", "Delivery Manager", "img3.jpg"));
+            // Employees.Add(new Employee(4, "Keith Joyce-Purdy", "Project Manager", "img4.jpg"));
+            // Employees.Add(new Employee(5, "Sheri Spruce", "Sr. Software Engineer", "img5.jpg"));
+            // Employees.Add(new Employee(6, "Burt Indybrick", "Software Engineer", "img6.jpg"));
+
+            //Employees = new EmployeeService().GetEmployees();
+            //Task.Run(async () =>
+            //{
+            //    Employees= await new EmployeeService().GetEmployees();
+            //});
+            LoadEmplyeesAsync();
 
              MessagingCenter.Subscribe<AddOrEditEmployeePage,Employee>(
                  this, 
@@ -94,6 +116,23 @@ namespace Tutorial
             //Employees.Add(EmployeeName);
             //int addedIdx = Employees.Count - 1;
             //Employees.Move(addedIdx,selectedIdx);
+        }
+
+        public void LoadEmplyeesAsync()
+        {
+            Task.Run(async () =>
+            {
+                Employees = await new EmployeeService().GetEmployees();
+            });
+            
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
