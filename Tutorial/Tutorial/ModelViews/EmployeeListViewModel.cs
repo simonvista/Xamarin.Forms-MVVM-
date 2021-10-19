@@ -11,7 +11,7 @@ using Xamarin.Forms;
 
 namespace Tutorial
 {
-    class EmployeeListViewModel
+    public class EmployeeListViewModel
     {
         //approach 2: w/o model is not good-can not alter employeeList
         //public string[] Employees { get; set; }

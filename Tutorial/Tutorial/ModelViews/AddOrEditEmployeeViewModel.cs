@@ -7,7 +7,7 @@ using Tutorial.Annotations;
 
 namespace Tutorial
 {
-    class AddOrEditEmployeeViewModel : INotifyPropertyChanged
+    public class AddOrEditEmployeeViewModel : INotifyPropertyChanged
     {
         private Employee _employee;
 
