@@ -6,14 +6,36 @@
     <ContentPage.BindingContext>
         <local:EmployeeListViewModel />
     </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="add" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <Entry Placeholder="employee name" Text="{Binding EmployeeName}"/>
+            <!--<Entry Placeholder="employee name" Text="{Binding EmployeeName}"/>
             <Button Text="add employee" Command="{Binding AddEmployeeCommand}" />
             <Button Text="remove selected employee" Command="{Binding RemoveEmployeeCommand}" />
-            <Button Text="update selected employee" Command="{Binding UpdateEmployeeCommand}" />
+            <Button Text="update selected employee" Command="{Binding UpdateEmployeeCommand}" />-->
             <!--<ListView x:Name="lvEmployees"></ListView>-->
-            <ListView ItemsSource="{Binding Employees}" SelectedItem="{Binding SelectedEmpName}"></ListView>
+            <ListView ItemsSource="{Binding Employees}" SelectedItem="{Binding SelectedEmpName}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="7*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding PictureUrl}" Grid.Column="0" />
+                                <Label Text="{Binding EmployeeName}" Grid.Column="1" VerticalTextAlignment="Start" FontSize="Medium" FontAttributes="Bold" />
+                                <Label Text="{Binding Designation}" Grid.Column="1" VerticalTextAlignment="End" />
+                                <Image Source="edit.png" Grid.Column="2" />
+                                <Image Source="trash.png" Grid.Column="3" />
+                            </Grid>
+                            
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
