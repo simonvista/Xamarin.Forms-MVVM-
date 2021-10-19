@@ -17,6 +17,7 @@
             <Button Text="update selected employee" Command="{Binding UpdateEmployeeCommand}" />-->
             <!--<ListView x:Name="lvEmployees"></ListView>-->
 
+            <!--SearchBar-->
             <SearchBar x:Name="schEmployees"
                        SearchCommand="{Binding SearchCommand}"
                        SearchCommandParameter="{Binding Text,Source={x:Reference schEmployees}}"/>

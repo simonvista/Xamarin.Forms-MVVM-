@@ -40,6 +40,7 @@ namespace Tutorial
                     //new AppMasterDetailPageMenuItem { Id = 4, Title = "Page 5" },
                     new AppMasterDetailPageMenuItem { Id = 4, Title = "EnrollStudentPage",TargetType = typeof(EnrollStudentPage)},
                     new AppMasterDetailPageMenuItem { Id = 5, Title = "EmployeeListPage", TargetType = typeof(EmployeeListPage)},
+                    new AppMasterDetailPageMenuItem { Id = 6, Title = "BehaviorsPage",TargetType = typeof(BehaviorsPage)},
                 });
             }
             
