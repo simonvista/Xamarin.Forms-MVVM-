@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,16 @@ namespace Tutorial
         private void MenuItem_OnClicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new AddOrEditEmployeePage());
+        }
+
+        private void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
+        {
+            var tappedEventArgs = (TappedEventArgs)e;
+            //Debug.WriteLine("Hello "+tappedEventArgs.Parameter);  //employeeId
+            Employee selectedEmployee = 
+                ((EmployeeListViewModel) BindingContext).Employees.Where(
+                    emp => emp.EmployeeId ==(int) tappedEventArgs.Parameter).FirstOrDefault();
+            Navigation.PushAsync(new AddOrEditEmployeePage(selectedEmployee));
         }
     }
 }

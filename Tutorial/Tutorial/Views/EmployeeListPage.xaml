@@ -28,8 +28,14 @@
                                 <Image Source="{Binding PictureUrl}" Grid.Column="0" />
                                 <Label Text="{Binding EmployeeName}" Grid.Column="1" VerticalTextAlignment="Start" FontSize="Medium" FontAttributes="Bold" />
                                 <Label Text="{Binding Designation}" Grid.Column="1" VerticalTextAlignment="End" />
-                                <Image Source="edit.png" Grid.Column="2" />
-                                <Image Source="trash.png" Grid.Column="3" />
+                                <Image Source="edit.png" Grid.Column="2">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer 
+                                            Tapped="TapGestureRecognizer_OnTapped"
+                                            CommandParameter="{Binding EmployeeId}"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <Image Source="trash.png" Grid.Column="3"></Image>
                             </Grid>
                             
                         </ViewCell>

@@ -12,9 +12,14 @@ namespace Tutorial
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class AddOrEditEmployeePage : ContentPage
 	{
-		public AddOrEditEmployeePage ()
-		{
+        //public AddOrEditEmployeePage ()
+        public AddOrEditEmployeePage(Employee employee=null)
+        {
 			InitializeComponent ();
+            if (employee!=null)
+            {
+                ((AddOrEditEmployeeViewModel) BindingContext).Employee = employee;
+            }
 		}
 
         private void Button_OnClicked(object sender, EventArgs e)

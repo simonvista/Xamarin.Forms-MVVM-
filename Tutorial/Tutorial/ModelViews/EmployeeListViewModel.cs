@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -53,11 +54,22 @@ namespace Tutorial
                  "AddOrEditEmployee",
                  (sender, employee) =>
                  {
+                     //new employee
                      if (employee.EmployeeId == 0)
                      {
                          employee.EmployeeId = Employees.Count+1;
+                         Employees.Add(employee);
                      }
-                     Employees.Add(employee);
+                     //update employee
+                     else
+                     {
+                        Employee empToEdit=Employees.Where(
+                            emp=>emp.EmployeeId==employee.EmployeeId).FirstOrDefault();
+                        int idxToEdit=Employees.IndexOf(empToEdit);
+                        Employees.Remove(empToEdit);
+                        Employees.Add(employee);
+                        Employees.Move(Employees.Count-1,idxToEdit);
+                     }
                  });
         }
 
