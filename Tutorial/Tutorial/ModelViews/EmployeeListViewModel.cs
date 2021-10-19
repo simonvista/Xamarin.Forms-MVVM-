@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Input;
+using Tutorial.Annotations;
 using Xamarin.Forms;
 
 namespace Tutorial
@@ -68,7 +71,8 @@ namespace Tutorial
                         int idxToEdit=Employees.IndexOf(empToEdit);
                         Employees.Remove(empToEdit);
                         Employees.Add(employee);
-                        Employees.Move(Employees.Count-1,idxToEdit);
+                        int oldIdx = Employees.IndexOf(employee);
+                        Employees.Move(oldIdx,idxToEdit);
                      }
                  });
         }

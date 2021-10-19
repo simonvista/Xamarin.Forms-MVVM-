@@ -27,7 +27,7 @@ namespace Tutorial
         {
             Navigation.PushAsync(new AddOrEditEmployeePage());
         }
-
+        //edit
         private void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
         {
             var tappedEventArgs = (TappedEventArgs)e;
@@ -36,6 +36,15 @@ namespace Tutorial
                 ((EmployeeListViewModel) BindingContext).Employees.Where(
                     emp => emp.EmployeeId ==(int) tappedEventArgs.Parameter).FirstOrDefault();
             Navigation.PushAsync(new AddOrEditEmployeePage(selectedEmployee));
+        }
+        //delete
+        private void TapGestureRecognizer_OnTapped2(object sender, EventArgs e)
+        {
+            var tappedEventArgs2 = (TappedEventArgs) e;
+            Employee empToDelete=((EmployeeListViewModel) BindingContext).Employees.Where(
+                amp => amp.EmployeeId == (int) tappedEventArgs2.Parameter).FirstOrDefault();
+            ((EmployeeListViewModel) BindingContext).Employees.Remove(empToDelete);
+
         }
     }
 }
