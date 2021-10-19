@@ -43,6 +43,8 @@ namespace Tutorial
         public ICommand RemoveEmployeeCommand => new Command(RemoveEmployee);
         public ICommand UpdateEmployeeCommand => new Command(UpdateEmployee);
 
+        public ICommand SearchCommand => new Command<string>(LoadEmployeesAsync1);
+
         private bool _isBusy;
         public bool IsBusy
         {
@@ -137,6 +139,16 @@ namespace Tutorial
                 IsBusy = false;
             });
             
+        }
+
+        private void LoadEmployeesAsync1(string query)
+        {
+            IsBusy=true;
+            Task.Run(async () =>
+            {
+                Employees = await new EmployeeService().GetEmployeesAsync(query);
+                IsBusy = false;
+            });
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
